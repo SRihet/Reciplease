@@ -4,7 +4,8 @@
 target 'Reciplease' do
   use_frameworks!
   
-  pod 'Alamofire'
+  pod 'Alamofire', '5.6.1'
+  pod 'Kingfisher', '~> 7.0'
 
 
   target 'RecipleaseTests' do
