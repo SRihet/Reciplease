@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -31,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.96470588450000005" green="0.9529411793" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="CustomColorBackground"/>
                         <constraints>
                             <constraint firstItem="oBa-oF-V4h" firstAttribute="top" secondItem="v4N-dJ-8vF" secondAttribute="top" constant="10" id="3Qr-TT-hbW"/>
                             <constraint firstItem="oBa-oF-V4h" firstAttribute="centerY" secondItem="v4N-dJ-8vF" secondAttribute="centerY" id="Bky-xF-4zu"/>
@@ -59,6 +60,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" name="CustomColorBackground"/>
                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="v4N-dJ-8vF" secondAttribute="trailing" constant="20" symbolic="YES" id="6bo-rg-vU4"/>
@@ -77,4 +79,9 @@
             <point key="canvasLocation" x="119" y="-14"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="CustomColorBackground">
+            <color red="0.96470588235294119" green="0.95294117647058818" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

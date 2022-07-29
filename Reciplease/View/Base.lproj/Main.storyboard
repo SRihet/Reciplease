@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="CustomColorBackground"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.96470588450000005" green="0.9529411793" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" name="CustomColorBackground"/>
                         <color key="selectedImageTintColor" name="CustomColorPrimary"/>
                     </tabBar>
                     <connections>
@@ -68,7 +68,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="nka-aL-8Gy"/>
                                 </constraints>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                             </textField>
@@ -112,7 +111,7 @@
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tYH-ra-uLQ">
                                 <rect key="frame" x="0.0" y="236" width="414" height="533"/>
-                                <color key="backgroundColor" red="0.96470588450000005" green="0.9529411793" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="CustomColorBackground"/>
                                 <color key="separatorColor" red="0.82745099070000006" green="0.44313728810000003" blue="0.43137252329999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6h-WO-uck">
@@ -142,7 +141,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="g8o-G3-5XZ"/>
-                        <color key="backgroundColor" name="CustomColor1"/>
+                        <color key="backgroundColor" name="CustomColorBackground"/>
                         <constraints>
                             <constraint firstItem="O6h-WO-uck" firstAttribute="trailing" secondItem="g8o-G3-5XZ" secondAttribute="trailing" id="0M2-Xn-gfY"/>
                             <constraint firstItem="MRF-iw-5BF" firstAttribute="centerX" secondItem="1Bd-1K-TRM" secondAttribute="centerX" id="3EG-gS-dI5"/>
@@ -216,7 +215,8 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ntN-kb-DYq">
                                 <rect key="frame" x="0.0" y="88" width="414" height="676"/>
-                                <color key="backgroundColor" red="0.96470588450000005" green="0.9529411793" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="CustomColorBackground"/>
+                                <color key="separatorColor" name="CustomColorPrimary"/>
                                 <color key="sectionIndexBackgroundColor" name="CustomColorBackground"/>
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JM4-LD-g2Y">
@@ -253,7 +253,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" name="CustomColor1"/>
+                                <color key="backgroundColor" name="CustomColorBackground"/>
                                 <constraints>
                                     <constraint firstItem="7wh-aj-Mg1" firstAttribute="centerY" secondItem="JM4-LD-g2Y" secondAttribute="centerY" id="0D2-5q-700"/>
                                     <constraint firstItem="X0g-bJ-YLa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JM4-LD-g2Y" secondAttribute="leading" constant="20" id="3np-vh-yCU"/>
@@ -269,7 +269,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6r6-4I-FYs"/>
-                        <color key="backgroundColor" name="CustomColor1"/>
+                        <color key="backgroundColor" name="CustomColorBackground"/>
                         <constraints>
                             <constraint firstItem="ntN-kb-DYq" firstAttribute="leading" secondItem="6r6-4I-FYs" secondAttribute="leading" id="0gP-IA-nIm"/>
                             <constraint firstItem="6r6-4I-FYs" firstAttribute="bottom" secondItem="ntN-kb-DYq" secondAttribute="bottom" id="P9C-Is-ts1"/>
@@ -325,7 +325,6 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yield" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ws9-bU-Sra">
                                                 <rect key="frame" x="2" y="1" width="38" height="25"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20p-Mt-L4B">
@@ -334,7 +333,6 @@
                                                     <constraint firstAttribute="height" constant="25" id="7WH-YX-G00"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r7F-zR-o3L">
@@ -355,8 +353,8 @@
                                                 </constraints>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.96470588450000005" green="0.9529411793" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <color key="tintColor" red="0.82745099070000006" green="0.44313728810000003" blue="0.43137252329999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" name="CustomColorBackground"/>
+                                        <color key="tintColor" name="CustomColorPrimary"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="76" id="0ZZ-5B-GSb"/>
                                             <constraint firstItem="pze-CZ-taR" firstAttribute="leading" secondItem="20p-Mt-L4B" secondAttribute="trailing" constant="4" id="CKr-ds-3kI"/>
@@ -390,7 +388,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSw-l5-cFW">
                                 <rect key="frame" x="8" y="296" width="398" height="39"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="30"/>
-                                <color key="textColor" red="0.82745099070000006" green="0.44313728810000003" blue="0.43137252329999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" name="CustomColorPrimary"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nb-aB-l8O">
@@ -440,7 +438,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5eE-lr-527"/>
-                        <color key="backgroundColor" name="CustomColor1"/>
+                        <color key="backgroundColor" name="CustomColorBackground"/>
                         <constraints>
                             <constraint firstItem="0dT-dF-fiD" firstAttribute="top" secondItem="3nb-aB-l8O" secondAttribute="bottom" constant="22" id="1S9-Wn-4Hb"/>
                             <constraint firstItem="LAF-yS-QW5" firstAttribute="trailing" secondItem="5eE-lr-527" secondAttribute="trailing" id="37u-Rh-YZN"/>
@@ -499,9 +497,6 @@
         <image name="trash.fill" catalog="system" width="121" height="128"/>
         <namedColor name="ClearButtonBackground">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="CustomColor1">
-            <color red="0.96470588235294119" green="0.95294117647058818" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="CustomColorBackground">
             <color red="0.96470588235294119" green="0.95294117647058818" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

@@ -44,6 +44,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         ingredients.append(ingredient)
         ingredientsTableView.reloadData()
         ingredientsTextField.text = ""
+        ingredientsTextField.endEditing(true)
         checkIfEmpty()
     }
     
@@ -117,6 +118,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.tabBarItem.isAccessibilityElement = true
         self.navigationController?.tabBarItem.accessibilityLabel = "Search section"
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
+        }
+
     
     func checkIfEmpty() {
         if ingredients.count == 0 {

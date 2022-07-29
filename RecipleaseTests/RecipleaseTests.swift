@@ -101,6 +101,15 @@ class RecipleaseTests: XCTestCase {
         XCTAssertTrue(recipeIsFavorite)
     }
     
+    func testAddRecipeMethodsThenShouldBeNotSaved() {
+
+        recipeManager.selectedRecipe = nil
+        let isSaved = recipeManager.saveRecipeOnDatabase()
+        XCTAssertTrue(recipeManager.favoritesRecipes.isEmpty)
+        XCTAssertFalse(isSaved)
+
+    }
+    
     func testDeleteRecipeMethodThenShouldBeCorrectlyDeleted() {
         
         let fakeRecipe = Recipe(label: "Fake Recipe", image:  "https://fr.wikipedia.org/wiki/Fichier:Logo_OpenClassrooms.png", url: "https://www.openclassrooms.com", yield: 16, ingredientLines: ["big workday", "250gr Swift"], ingredients: [Ingredients(food: "Work"), Ingredients(food: "Swift")], totalTime: 40, favorite: true)
