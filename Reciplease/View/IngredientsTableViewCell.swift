@@ -9,13 +9,14 @@ import UIKit
 
 class IngredientsTableViewCell: UITableViewCell {
     
+    // MARK: IBOutlet
     @IBOutlet private weak var ingredientLabel: UILabel!
     @IBOutlet weak var emojiIcon: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     func configureCell(ingredient: String) {
         ingredientLabel.text = "- \(ingredient)"
         applyAccessibility()

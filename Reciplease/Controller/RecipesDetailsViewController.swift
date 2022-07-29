@@ -9,6 +9,7 @@ import UIKit
 
 class RecipesDetailsViewController: UIViewController {
     
+    // MARK: IBOutlet
     @IBOutlet weak var yieldLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
@@ -50,6 +51,7 @@ class RecipesDetailsViewController: UIViewController {
         updateFavoriteButtonStatus()
     }
     
+    // MARK: IBAction
     @IBAction func getDirections(_ sender: Any) {
         guard let recipe = recipeManager.selectedRecipe else { return }
         
@@ -64,6 +66,7 @@ class RecipesDetailsViewController: UIViewController {
         updateFavoriteButtonStatus()
     }
     
+    // MARK: Methods
     func applyAccessibility() {
         recipeImage.accessibilityTraits = .image
         recipeImage.accessibilityLabel = "Image of the recipe"
@@ -139,6 +142,7 @@ class RecipesDetailsViewController: UIViewController {
     
 }
 
+// MARK: TableView
 extension RecipesDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

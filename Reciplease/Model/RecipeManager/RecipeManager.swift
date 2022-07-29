@@ -11,9 +11,7 @@ import CoreData
 
 class RecipeManager {
     
-    // MARK: Public
     // MARK: Properties
-
     private let coreDataManager = CoreDataManager()
     private var netWorker: NetWorker
     
@@ -37,30 +35,34 @@ class RecipeManager {
         return coreDataManager.favoritesRecipes
     }
     
+    // MARK: - Initializer
     init(networker: NetWorker = NetWorker()) {
         netWorker = networker
     }
     
     // MARK: Methods
-    func getRecipes(ingredients: [String], completionHandler: @escaping ((Bool) -> Void)) {
-        guard let url = _createRequest(withIngredients: ingredients) else {
-            completionHandler(false)
+    func getRecipes(ingredients: [String], completionHandler: @escaping ((_ isSuccess: Bool, _ error: Error?) -> Void)) {
+        guard let url = createRequest(withIngredients: ingredients) else {
+            completionHandler(false, RecipleaseError.recipeErrorNetwork)
             return
         }
         
         netWorker.request(url: url) { [weak self] response in
             guard let self = self else { return }
             var isASuccess = false
+            var error: Error?
             switch response.result {
             case .success:
                 if let hits = response.value  {
                     self._returnededRecipes = hits.hits.map{$0.recipe}
                     isASuccess = true
+                    error  = nil
                 }
             case .failure:
-                break
+                isASuccess = false
+                error = RecipleaseError.recipeErrorNetwork
             }
-            completionHandler(isASuccess)
+            completionHandler(isASuccess, error)
         }
     }
     
@@ -73,32 +75,30 @@ class RecipeManager {
         }
         return true
     }
-
+    
     func deleteRecordOnDatabase() -> Bool {
         guard let selectedRecipe = selectedRecipe else { return false }
-
+        
         if coreDataManager.deleteRecipe(recipe: selectedRecipe) {
             return true
         }else {
             return false
         }
     }
-
+    
     func deleteAllRecordOnDatabase() -> Bool  {
         if coreDataManager.deleteAllRecipes() {
-           return true
+            return true
         }else {
             return false
         }
     }
     
-    // MARK: Methods
-    /// Configure the URL with parameters
-    private func _createRequest(withIngredients ingredients: [String]) -> URL? {
+    private func createRequest(withIngredients ingredients: [String]) -> URL? {
         let params = ["q": ingredients.joined(separator: ","), "app_id": appId, "app_key": appKey, "type": "public"]
-
+        
         guard var components = URLComponents(string: url) else { return nil }
-
+        
         components.queryItems = [URLQueryItem]()
         for (key, value) in params {
             components.queryItems?.append(URLQueryItem(name: key, value: value))

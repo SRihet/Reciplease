@@ -27,7 +27,7 @@
 		CBB01F1C2850EED40070C2D5 /* NetWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB01F1B2850EED40070C2D5 /* NetWorker.swift */; };
 		CBB01F1E2850F9F20070C2D5 /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB01F1D2850F9F20070C2D5 /* RecipeManager.swift */; };
 		CBB01F212850FBFA0070C2D5 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB01F202850FBFA0070C2D5 /* ApiKey.swift */; };
-		CBB01F23285106CA0070C2D5 /* RecipleaseAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB01F22285106CA0070C2D5 /* RecipleaseAlert.swift */; };
+		CBB01F23285106CA0070C2D5 /* RecipleaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB01F22285106CA0070C2D5 /* RecipleaseError.swift */; };
 		CBB01F26285107290070C2D5 /* Extension-UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB01F25285107290070C2D5 /* Extension-UIViewController.swift */; };
 		CBB75230284109DD00CBA65F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7522F284109DD00CBA65F /* AppDelegate.swift */; };
 		CBB75232284109DD00CBA65F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB75231284109DD00CBA65F /* SceneDelegate.swift */; };
@@ -74,7 +74,7 @@
 		CBB01F1B2850EED40070C2D5 /* NetWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorker.swift; sourceTree = "<group>"; };
 		CBB01F1D2850F9F20070C2D5 /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
 		CBB01F202850FBFA0070C2D5 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
-		CBB01F22285106CA0070C2D5 /* RecipleaseAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseAlert.swift; sourceTree = "<group>"; };
+		CBB01F22285106CA0070C2D5 /* RecipleaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseError.swift; sourceTree = "<group>"; };
 		CBB01F25285107290070C2D5 /* Extension-UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-UIViewController.swift"; sourceTree = "<group>"; };
 		CBB7522C284109DD00CBA65F /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB7522F284109DD00CBA65F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				CBB01F202850FBFA0070C2D5 /* ApiKey.swift */,
-				CBB01F22285106CA0070C2D5 /* RecipleaseAlert.swift */,
+				CBB01F22285106CA0070C2D5 /* RecipleaseError.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -444,7 +444,7 @@
 				CBB75230284109DD00CBA65F /* AppDelegate.swift in Sources */,
 				CB837A942874A8EF00FEDAA1 /* MyRecipe.swift in Sources */,
 				CBB01F11284A107A0070C2D5 /* RecipesDetailsViewController.swift in Sources */,
-				CBB01F23285106CA0070C2D5 /* RecipleaseAlert.swift in Sources */,
+				CBB01F23285106CA0070C2D5 /* RecipleaseError.swift in Sources */,
 				CBA81F7A284112E70078A255 /* CoreDataManager.swift in Sources */,
 				CBB75232284109DD00CBA65F /* SceneDelegate.swift in Sources */,
 			);
@@ -619,6 +619,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
@@ -649,6 +650,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;

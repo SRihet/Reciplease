@@ -18,6 +18,7 @@ class RecipleaseTests: XCTestCase {
     var fakeNetworker: FakeNetworker!
     
     var expectation: XCTestExpectation!
+    
     // MARK: - Tests Life Cycle
     
     override func setUp() {
@@ -26,6 +27,7 @@ class RecipleaseTests: XCTestCase {
         fakeNetworker = FakeNetworker()
         recipeManager = RecipeManager(networker: fakeNetworker)
         expectation = XCTestExpectation(description: "Expectation")
+        _ = recipeManager.deleteAllRecordOnDatabase()
     }
     
     override func tearDown() {
@@ -38,9 +40,9 @@ class RecipleaseTests: XCTestCase {
     func testNetWorkerPostFailedCallbackIfError() {
         fakeNetworker.state = .error
         
-        recipeManager.getRecipes(ingredients: ingredientsList) { success in
+        recipeManager.getRecipes(ingredients: ingredientsList) { success, error in
             XCTAssertFalse(success)
-            
+            XCTAssertNotNil(error)
             XCTAssertTrue(self.recipeManager.returnedRecipes.count == 0)
             self.expectation.fulfill()
         }
@@ -51,9 +53,9 @@ class RecipleaseTests: XCTestCase {
     func testNetWorkerFailedCallbackIfIncorrectData() {
         fakeNetworker.state = .incorrectData
         
-        recipeManager.getRecipes(ingredients: ingredientsList) { success in
+        recipeManager.getRecipes(ingredients: ingredientsList) { success, error in
             XCTAssertFalse(success)
-            
+            XCTAssertNotNil(error)
             XCTAssertTrue(self.recipeManager.returnedRecipes.count == 0)
             self.expectation.fulfill()
         }
@@ -64,8 +66,9 @@ class RecipleaseTests: XCTestCase {
     func testNetWorkerPostSuccessCallbackIfCorrectDataAndNoError() {
         fakeNetworker.state = .correctData
         
-        recipeManager.getRecipes(ingredients: ingredientsList) { success in
+        recipeManager.getRecipes(ingredients: ingredientsList) { success, error in
             XCTAssertTrue(success)
+            XCTAssertNil(error)
             XCTAssertTrue(self.recipeManager.returnedRecipes.count > 0)
             let recipe = self.recipeManager.returnedRecipes.first
             XCTAssertEqual(recipe?.label, "Strong Cheese")
@@ -97,17 +100,17 @@ class RecipleaseTests: XCTestCase {
         XCTAssertTrue(recipeManager.favoritesRecipes[0].image == "https://fr.wikipedia.org/wiki/Fichier:Logo_OpenClassrooms.png")
         XCTAssertTrue(recipeManager.favoritesRecipes[0].url == "https://www.openclassrooms.com")
         
-         recipeIsFavorite = recipeManager.selectedRecipeIsFavorite
+        recipeIsFavorite = recipeManager.selectedRecipeIsFavorite
         XCTAssertTrue(recipeIsFavorite)
     }
     
     func testAddRecipeMethodsThenShouldBeNotSaved() {
-
+        
         recipeManager.selectedRecipe = nil
         let isSaved = recipeManager.saveRecipeOnDatabase()
         XCTAssertTrue(recipeManager.favoritesRecipes.isEmpty)
         XCTAssertFalse(isSaved)
-
+        
     }
     
     func testDeleteRecipeMethodThenShouldBeCorrectlyDeleted() {

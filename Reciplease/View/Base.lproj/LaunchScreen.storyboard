@@ -18,6 +18,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconApp" translatesAutoresizingMaskIntoConstraints="NO" id="sPV-ZN-Vqc">
                                 <rect key="frame" x="87" y="358" width="240" height="180"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="2O3-fQ-t1r"/>
                                     <constraint firstAttribute="height" constant="180" id="vCo-4K-RIA"/>

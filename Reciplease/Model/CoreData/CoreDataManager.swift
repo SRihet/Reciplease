@@ -8,8 +8,8 @@
 import CoreData
 
 final class CoreDataManager {
-    // MARK: - Properties
     
+    // MARK: - Properties
     private let coreDataStack = CoreDataStack()
     private var managedObjectContext: NSManagedObjectContext {
         return coreDataStack.mainContext
@@ -37,12 +37,10 @@ final class CoreDataManager {
     }
     
     // MARK: - Initializer
-    
     init() {
     }
     
-    // MARK: - Manage Task Entity
-    
+    // MARK: - Manage Entity
     func saveRecipe(recipe: Recipe) -> Bool {
         guard !checkIfRecipeIsFavorite(recipe: recipe) else { return false }
         let savedRecipe = MyRecipe(context: managedObjectContext)

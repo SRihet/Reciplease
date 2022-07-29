@@ -12,9 +12,9 @@ protocol NetWorkerProtocol {
     func request(url: URL, completionHandler: @escaping(DataResponse<RecipeData, AFError>)->Void)
 }
 
- class NetWorker: NetWorkerProtocol {
+class NetWorker: NetWorkerProtocol {
     func request(url: URL, completionHandler: @escaping (DataResponse<RecipeData, AFError>) -> Void) {
         let request = AF.request(url) { $0.timeoutInterval = 10 }.validate()
         request.responseDecodable(completionHandler: completionHandler)
     }
-    }
+}

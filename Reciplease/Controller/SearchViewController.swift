@@ -9,6 +9,7 @@ import UIKit
 
 class SearchViewController: UIViewController, UITextFieldDelegate {
     
+    // MARK: IBOutlet
     @IBOutlet weak var ingredientsTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var clearIngredientsButton: UIButton!
@@ -37,7 +38,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         checkIfEmpty()
     }
     
-    
+    // MARK: IBAction
     @IBAction func addIngredientButton(_ sender: Any) {
         guard let ingredient = ingredientsTextField.text, !ingredient.isEmpty else { return }
         
@@ -62,9 +63,15 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         activityIndicator.isHidden = false
         
-        recipeManager.getRecipes(ingredients: ingredients){ [weak self] isSuccess in
+        recipeManager.getRecipes(ingredients: ingredients){ [weak self] isSuccess, error in
             guard let self = self else { return }
             self.activityIndicator.isHidden = true
+            
+            if let error = error {
+                if error as? RecipleaseError == RecipleaseError.recipeErrorNetwork {
+                    self.presentAlert(alert: .recipeErrorNetwork)
+                }
+            }
             if isSuccess {
                 if self.recipeManager.returnedRecipes.count > 0 {
                     self.performSegue(withIdentifier: "segueToRecipe", sender: self)
@@ -72,14 +79,13 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                     self.presentAlert(alert: .noRecipeResult)
                 }
                 
-            } else {
-                self.presentAlert(alert: .recipeErrorNetwork)
             }
         }
         
         
     }
     
+    // MARK: Methods
     func applyAccessibility() {
         ingredientsTextField.accessibilityLabel = "Ingredients textfield"
         ingredientsTextField.accessibilityHint = "Enter your ingredients"
@@ -120,10 +126,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
-            return true
-        }
-
+        textField.resignFirstResponder()
+        return true
+    }
+    
     
     func checkIfEmpty() {
         if ingredients.count == 0 {
@@ -135,6 +141,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // MARK: Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "segueToRecipe", let recipeListVC = segue.destination as? RecipeListViewController else { return }
         recipeListVC.recipeManager = recipeManager
@@ -142,6 +149,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
+
+    // MARK: TableView
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         ingredients.count

@@ -9,13 +9,9 @@ import Reciplease
 import CoreData
 
 final class MockCoreDataStack: CoreDataStack {
-
+    
     // MARK: - Initializer
-
-//    convenience init() {
-//        self.init()
-//    }
-
+    
     override init() {
         super.init()
         let persistentContainerName = "Reciplease"

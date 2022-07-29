@@ -9,14 +9,9 @@ import Foundation
 import Alamofire
 @testable import Reciplease
 
-
-
 class FakeResponseData {
     private static let responseOk = HTTPURLResponse(url: URL(string: "https://www.google.com")!, statusCode: 200, httpVersion: nil, headerFields: nil)!
     private static let responseKO = HTTPURLResponse(url: URL(string: "https://www.google.com")!, statusCode: 500, httpVersion: nil, headerFields: nil)!
-    
-    class ResponseError: Error {} // Protocol not an instance
-    static let error =  ()
     
     static func getCorrectData() -> RecipeData {
         let bundle = Bundle(for: FakeResponseData.self)
@@ -39,7 +34,7 @@ class FakeResponseData {
     }
     static var responseData = FakeResponse()
     
-    enum SessionStatus {
+    enum ResultStats {
         case error
         case correctData
         case incorrectData

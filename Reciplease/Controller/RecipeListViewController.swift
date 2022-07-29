@@ -9,12 +9,13 @@ import UIKit
 
 class RecipeListViewController: UIViewController {
     
+    
+    // MARK: IBOutlet
     @IBOutlet weak var clearFavoritesButton: UIBarButtonItem!
     @IBOutlet weak var listRecipesTableView: UITableView!
-    
     @IBOutlet weak var noFavoritesView: UIView!
-    // MARK: Properties
     
+    // MARK: Properties
     var recipeManager = RecipeManager()
     var isFavorite = true
     
@@ -23,9 +24,9 @@ class RecipeListViewController: UIViewController {
         
         listRecipesTableView.delegate = self
         listRecipesTableView.dataSource = self
-
+        
         listRecipesTableView.register(UINib.init(nibName: "RecipesTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipesTableViewCell")
-
+        
         updateTrashButtonStatus()
         applyAccessibility()
     }
@@ -33,11 +34,23 @@ class RecipeListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         listRecipesTableView.reloadData()
         checkIfEmpty()
-
+        
         updateTrashButtonStatus()
         applyAccessibility()
     }
     
+    // MARK: IBAction
+    @IBAction func deleteAll(_ sender: Any) {
+        if !recipeManager.deleteAllRecordOnDatabase() {
+            self.presentAlert(alert: .deleteRecipeFailed)
+        }
+        
+        updateTrashButtonStatus()
+        listRecipesTableView.reloadData()
+        checkIfEmpty()
+    }
+    
+    // MARK: Methods
     func applyAccessibility() {
         listRecipesTableView.accessibilityLabel = "List of recipes"
         listRecipesTableView.accessibilityHint = "Displays all recipe"
@@ -50,9 +63,9 @@ class RecipeListViewController: UIViewController {
             self.navigationController?.tabBarItem.isAccessibilityElement = true
             self.navigationController?.tabBarItem.accessibilityLabel = "Search section"
         }
-
-
-
+        
+        
+        
         self.navigationController?.tabBarItem.isAccessibilityElement = true
         self.navigationController?.tabBarItem.accessibilityLabel = "Search section"
     }
@@ -65,22 +78,6 @@ class RecipeListViewController: UIViewController {
                 noFavoritesView?.isHidden = true
             }
         }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "SegueToDetailsRecipe", let recipesDetailsVC = segue.destination as? RecipesDetailsViewController else { return }
-        recipesDetailsVC.recipeManager = recipeManager
-    }
-    
-    
-    @IBAction func deleteAll(_ sender: Any) {
-        if !recipeManager.deleteAllRecordOnDatabase() {
-            self.presentAlert(alert: .deleteRecipeFailed)
-        }
-        
-        updateTrashButtonStatus()
-        listRecipesTableView.reloadData()
-        checkIfEmpty()
     }
     
     
@@ -97,9 +94,17 @@ class RecipeListViewController: UIViewController {
         }else {
             self.navigationItem.rightBarButtonItem = nil
         }
-        }
+    }
+    
+    // MARK: Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "SegueToDetailsRecipe", let recipesDetailsVC = segue.destination as? RecipesDetailsViewController else { return }
+        recipesDetailsVC.recipeManager = recipeManager
+    }
+    
 }
 
+// MARK: TableView
 extension RecipeListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -108,7 +113,7 @@ extension RecipeListViewController: UITableViewDelegate, UITableViewDataSource {
         } else{
             recipeManager.selectedRecipe = recipeManager.returnedRecipes[indexPath.row]
         }
-
+        
         performSegue(withIdentifier: "SegueToDetailsRecipe", sender: self)
     }
     
@@ -130,9 +135,27 @@ extension RecipeListViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             cell.configureCell(recipe: recipeManager.returnedRecipes[indexPath.row])
         }
-
+        
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if isFavorite {
+            if editingStyle == .delete {
+                recipeManager.selectedRecipe = recipeManager.favoritesRecipes[indexPath.row]
+                if recipeManager.selectedRecipeIsFavorite {
+                    if !recipeManager.deleteRecordOnDatabase() {
+                        self.presentAlert(alert: .deleteRecipeFailed)
+                    }else {
+                        
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+                        checkIfEmpty()
+                    }
+                }
+                
+            }
+        }
     }
 }
 
