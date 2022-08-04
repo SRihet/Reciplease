@@ -87,7 +87,7 @@ class RecipleaseTests: XCTestCase {
     }
     
     func testAddRecipeMethodsThenShouldBeCorrectlySaved() {
-        let fakeRecipe = Recipe(label: "Fake Recipe", image:  "https://fr.wikipedia.org/wiki/Fichier:Logo_OpenClassrooms.png", url: "https://www.openclassrooms.com", yield: 16, ingredientLines: ["big workday", "250gr Swift"], ingredients: [Ingredients(food: "Apple"), Ingredients(food: "Sugar")], totalTime: 40, favorite: true)
+        let fakeRecipe = Recipe(label: "Fake Recipe", image:  "https://fr.wikipedia.org/wiki/Fichier:Logo_OpenClassrooms.png", url: "https://www.openclassrooms.com", yield: 16, ingredientLines: ["big workday", "250gr Swift"], ingredients: [Ingredients(food: "Apple"), Ingredients(food: "Sugar")], totalTime: 40)
         var recipeIsFavorite = recipeManager.selectedRecipeIsFavorite
         XCTAssertFalse(recipeIsFavorite)
         addFakeRecipeToCoreData(recipe: fakeRecipe)
@@ -115,7 +115,7 @@ class RecipleaseTests: XCTestCase {
     
     func testDeleteRecipeMethodThenShouldBeCorrectlyDeleted() {
         
-        let fakeRecipe = Recipe(label: "Fake Recipe", image:  "https://fr.wikipedia.org/wiki/Fichier:Logo_OpenClassrooms.png", url: "https://www.openclassrooms.com", yield: 16, ingredientLines: ["big workday", "250gr Swift"], ingredients: [Ingredients(food: "Work"), Ingredients(food: "Swift")], totalTime: 40, favorite: true)
+        let fakeRecipe = Recipe(label: "Fake Recipe", image:  "https://fr.wikipedia.org/wiki/Fichier:Logo_OpenClassrooms.png", url: "https://www.openclassrooms.com", yield: 16, ingredientLines: ["big workday", "250gr Swift"], ingredients: [Ingredients(food: "Work"), Ingredients(food: "Swift")], totalTime: 40)
         addFakeRecipeToCoreData(recipe: fakeRecipe)
         XCTAssertTrue(recipeManager.selectedRecipeIsFavorite)
         XCTAssertFalse(recipeManager.favoritesRecipes.isEmpty)
@@ -127,9 +127,9 @@ class RecipleaseTests: XCTestCase {
     
     func testDeleteAllRecipesMethodThenShouldBeCorrectlyDeleted() {
         
-        let fakeRecipeOne = Recipe(label: "Fake RecipeOne", image:  "https://fr.wikipedia.org/wiki/Fichier:Logo_OpenClassrooms.png", url: "https://www.openclassrooms.com", yield: 1, ingredientLines: ["big workday", "250gr Swift"], ingredients: [Ingredients(food: "Apple"), Ingredients(food: "Swift")], totalTime: 11, favorite: true)
+        let fakeRecipeOne = Recipe(label: "Fake RecipeOne", image:  "https://fr.wikipedia.org/wiki/Fichier:Logo_OpenClassrooms.png", url: "https://www.openclassrooms.com", yield: 1, ingredientLines: ["big workday", "250gr Swift"], ingredients: [Ingredients(food: "Apple"), Ingredients(food: "Swift")], totalTime: 11)
         addFakeRecipeToCoreData(recipe: fakeRecipeOne)
-        let fakeRecipeTwo = Recipe(label: "Fake RecipeTwo", image:  "https://fr.wikipedia.org/wiki/Fichier:Logo_OpenClassrooms.png", url: "https://www.openclassrooms.com", yield: 2, ingredientLines: ["big workday", "250gr Swift"], ingredients: [Ingredients(food: "Work"), Ingredients(food: "Swift")], totalTime: 22, favorite: true)
+        let fakeRecipeTwo = Recipe(label: "Fake RecipeTwo", image:  "https://fr.wikipedia.org/wiki/Fichier:Logo_OpenClassrooms.png", url: "https://www.openclassrooms.com", yield: 2, ingredientLines: ["big workday", "250gr Swift"], ingredients: [Ingredients(food: "Work"), Ingredients(food: "Swift")], totalTime: 22)
         addFakeRecipeToCoreData(recipe: fakeRecipeTwo)
         XCTAssertFalse(recipeManager.favoritesRecipes.isEmpty)
         let deleteSuccces =  deleteAllRecipeToCoreData()

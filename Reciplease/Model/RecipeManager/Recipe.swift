@@ -27,7 +27,6 @@ struct Recipe: Codable {
     let ingredientLines: [String]
     let ingredients: [Ingredients]
     let totalTime: Double
-    var favorite: Bool?
 }
 struct Ingredients: Codable {
     let food: String

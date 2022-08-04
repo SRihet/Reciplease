@@ -31,8 +31,7 @@ final class CoreDataManager {
                    ingredients: (favorite.ingredients?.map({ ingredient in
                 Ingredients(food: ingredient)
             }))!,
-                   totalTime: Double(favorite.totalTime),
-                   favorite: true)
+                   totalTime: Double(favorite.totalTime))
         }
     }
     
@@ -52,7 +51,6 @@ final class CoreDataManager {
         savedRecipe.totalTime = Int32(recipe.totalTime)
         savedRecipe.yield = Int32(recipe.yield)
         savedRecipe.ingredients = recipe.ingredients.compactMap {$0.food}
-        savedRecipe.isFavorite = true
         savedRecipe.url = recipe.url
         return coreDataStack.saveContext()
     }

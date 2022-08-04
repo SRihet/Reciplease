@@ -62,7 +62,6 @@ class RecipesDetailsViewController: UIViewController {
     @IBAction func addFavorite(_ sender: Any) {
         guard let _ = recipeManager.selectedRecipe else { return }
         _updateDatabase()
-        recipeManager.selectedRecipe!.favorite!.toggle()
         updateFavoriteButtonStatus()
     }
     
