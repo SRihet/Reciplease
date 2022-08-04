@@ -15,21 +15,15 @@ class RecipeManager {
     private let coreDataManager = CoreDataManager()
     private var netWorker: NetWorker
     
-    var selectedRecipe: Recipe? {
-        didSet {
-            if let recipe = selectedRecipe, coreDataManager.checkIfRecipeIsFavorite(recipe: recipe) {
-                selectedRecipe!.favorite = true
-            }
-        }
-    }
+    var selectedRecipe: Recipe?
     
     var selectedRecipeIsFavorite: Bool {
         guard let recipe = selectedRecipe else { return false }
         return coreDataManager.checkIfRecipeIsFavorite(recipe: recipe)
     }
     
-    private var _returnededRecipes: [Recipe] = []
-    var returnedRecipes: [Recipe] { _returnededRecipes }
+    private var _returnedRecipes: [Recipe] = []
+    var returnedRecipes: [Recipe] { _returnedRecipes }
     
     var favoritesRecipes: [Recipe] {
         return coreDataManager.favoritesRecipes
@@ -54,7 +48,7 @@ class RecipeManager {
             switch response.result {
             case .success:
                 if let hits = response.value  {
-                    self._returnededRecipes = hits.hits.map{$0.recipe}
+                    self._returnedRecipes = hits.hits.map{$0.recipe}
                     isASuccess = true
                     error  = nil
                 }
@@ -69,11 +63,10 @@ class RecipeManager {
     func saveRecipeOnDatabase() -> Bool {
         guard let recipe = selectedRecipe else { return false }
         if coreDataManager.saveRecipe(recipe: recipe) {
-            selectedRecipe!.favorite = true
+            return true
         } else {
             return false
         }
-        return true
     }
     
     func deleteRecordOnDatabase() -> Bool {
