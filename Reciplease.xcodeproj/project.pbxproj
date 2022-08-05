@@ -12,7 +12,6 @@
 		CB67501C2847C2E000C62910 /* IngredientsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB67501A2847C2E000C62910 /* IngredientsTableViewCell.xib */; };
 		CB67501F2847C30B00C62910 /* RecipesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB67501D2847C30B00C62910 /* RecipesTableViewCell.swift */; };
 		CB6750202847C30B00C62910 /* RecipesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB67501E2847C30B00C62910 /* RecipesTableViewCell.xib */; };
-		CB68B001287EBF9000A1A758 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB68B000287EBF9000A1A758 /* MockCoreDataStack.swift */; };
 		CB68B004287ECD9200A1A758 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB68B003287ECD9200A1A758 /* FakeResponseData.swift */; };
 		CB68B006287ECE6000A1A758 /* CheeseRecipe.json in Resources */ = {isa = PBXBuildFile; fileRef = CB68B005287ECE5F00A1A758 /* CheeseRecipe.json */; };
 		CB68B008287ECEB900A1A758 /* FakeNetworker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB68B007287ECEB900A1A758 /* FakeNetworker.swift */; };
@@ -60,7 +59,6 @@
 		CB67501A2847C2E000C62910 /* IngredientsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientsTableViewCell.xib; sourceTree = "<group>"; };
 		CB67501D2847C30B00C62910 /* RecipesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewCell.swift; sourceTree = "<group>"; };
 		CB67501E2847C30B00C62910 /* RecipesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipesTableViewCell.xib; sourceTree = "<group>"; };
-		CB68B000287EBF9000A1A758 /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		CB68B003287ECD9200A1A758 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		CB68B005287ECE5F00A1A758 /* CheeseRecipe.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CheeseRecipe.json; sourceTree = "<group>"; };
 		CB68B007287ECEB900A1A758 /* FakeNetworker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetworker.swift; sourceTree = "<group>"; };
@@ -241,7 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				CBB75249284109DD00CBA65F /* RecipleaseTests.swift */,
-				CB68B000287EBF9000A1A758 /* MockCoreDataStack.swift */,
 				CB68B003287ECD9200A1A758 /* FakeResponseData.swift */,
 				CB68B005287ECE5F00A1A758 /* CheeseRecipe.json */,
 				CB68B007287ECEB900A1A758 /* FakeNetworker.swift */,
@@ -455,7 +452,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBB7524A284109DD00CBA65F /* RecipleaseTests.swift in Sources */,
-				CB68B001287EBF9000A1A758 /* MockCoreDataStack.swift in Sources */,
 				CB68B008287ECEB900A1A758 /* FakeNetworker.swift in Sources */,
 				CB68B004287ECD9200A1A758 /* FakeResponseData.swift in Sources */,
 			);

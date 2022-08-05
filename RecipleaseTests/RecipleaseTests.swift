@@ -14,7 +14,6 @@ class RecipleaseTests: XCTestCase {
     
     var ingredientsList = ["Cheese", "milk"]
     var recipeManager: RecipeManager!
-    var coreDataStack: MockCoreDataStack!
     var fakeNetworker: FakeNetworker!
     
     var expectation: XCTestExpectation!
@@ -23,7 +22,6 @@ class RecipleaseTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        coreDataStack = MockCoreDataStack()
         fakeNetworker = FakeNetworker()
         recipeManager = RecipeManager(networker: fakeNetworker)
         expectation = XCTestExpectation(description: "Expectation")
