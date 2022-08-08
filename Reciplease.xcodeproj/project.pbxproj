@@ -29,7 +29,6 @@
 		CBB01F23285106CA0070C2D5 /* RecipleaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB01F22285106CA0070C2D5 /* RecipleaseError.swift */; };
 		CBB01F26285107290070C2D5 /* Extension-UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB01F25285107290070C2D5 /* Extension-UIViewController.swift */; };
 		CBB75230284109DD00CBA65F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB7522F284109DD00CBA65F /* AppDelegate.swift */; };
-		CBB75232284109DD00CBA65F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB75231284109DD00CBA65F /* SceneDelegate.swift */; };
 		CBB75237284109DD00CBA65F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB75235284109DD00CBA65F /* Main.storyboard */; };
 		CBB7523C284109DD00CBA65F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBB7523B284109DD00CBA65F /* Assets.xcassets */; };
 		CBB7523F284109DD00CBA65F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB7523D284109DD00CBA65F /* LaunchScreen.storyboard */; };
@@ -76,7 +75,6 @@
 		CBB01F25285107290070C2D5 /* Extension-UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-UIViewController.swift"; sourceTree = "<group>"; };
 		CBB7522C284109DD00CBA65F /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB7522F284109DD00CBA65F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CBB75231284109DD00CBA65F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CBB75236284109DD00CBA65F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBB75239284109DD00CBA65F /* Reciplease.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reciplease.xcdatamodel; sourceTree = "<group>"; };
 		CBB7523B284109DD00CBA65F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -229,7 +227,6 @@
 				CBA81F7228410ABD0078A255 /* View */,
 				CBA81F7128410AAC0078A255 /* Model */,
 				CBB7522F284109DD00CBA65F /* AppDelegate.swift */,
-				CBB75231284109DD00CBA65F /* SceneDelegate.swift */,
 				CBB75240284109DD00CBA65F /* Info.plist */,
 			);
 			path = Reciplease;
@@ -443,7 +440,6 @@
 				CBB01F11284A107A0070C2D5 /* RecipesDetailsViewController.swift in Sources */,
 				CBB01F23285106CA0070C2D5 /* RecipleaseError.swift in Sources */,
 				CBA81F7A284112E70078A255 /* CoreDataManager.swift in Sources */,
-				CBB75232284109DD00CBA65F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,15 +8,15 @@
 import Foundation
 import CoreData
 
-open class CoreDataStack {
+class CoreDataStack {
     
     // MARK: - Initializer
     public init() {
     }
     
     // MARK: - Core Data stack
-    public static let persistentContainerName = "Reciplease"
-    public lazy var persistentContainer: NSPersistentContainer = {
+    static let persistentContainerName = "Reciplease"
+    lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: CoreDataStack.persistentContainerName)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -26,11 +26,11 @@ open class CoreDataStack {
         return container
     }()
     
-    public lazy var mainContext: NSManagedObjectContext = {
+    lazy var mainContext: NSManagedObjectContext = {
         return persistentContainer.viewContext
     }()
     
-    public func saveContext() -> Bool {
+    func saveContext() -> Bool {
         var isSaved = false
         guard mainContext.hasChanges else { return isSaved }
         do {
